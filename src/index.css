@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   v3 design tokens — warm paper, deep green, saffron. Tailwind v4 turns these
+   into utilities (`bg-paper`, `text-green`, `font-display`, `shadow-card`…).
+   --------------------------------------------------------------------------- */
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  --color-paper: #f4eee2;
+  --color-paper2: #eae2cf;
+  --color-cream: #fbf8f1;
+  --color-ink: #14231c;
+  --color-ink2: #2a3a31;
+  --color-muted: #5e6b62;
+  --color-hint: #8f9a92;
+  --color-line: #ddd3bf;
+  --color-line2: #cbbfa6;
+
+  --color-green: #0e5b3f;
+  --color-green2: #0a4530;
+  --color-green3: #1c7a57;
+  --color-mint: #cfe7d8;
+  --color-mint2: #e6f2ea;
+
+  --color-saffron: #e9711c;
+  --color-saffron2: #f39a4c;
+  --color-saffron-w: #fbe6d3;
+  --color-gold: #c9a24a;
+  --color-red: #c8412b;
+  --color-red-w: #f8dfd8;
+  --color-amber: #d48a12;
+
+  --shadow-card: 0 1px 0 rgba(20, 35, 28, 0.04), 0 12px 32px -16px rgba(20, 35, 28, 0.22);
+  --shadow-lift: 0 30px 60px -28px rgba(20, 35, 28, 0.35);
+  --shadow-saffron: 0 18px 40px -16px rgba(233, 113, 28, 0.55);
+
+  --animate-marquee: marquee 46s linear infinite;
+  --animate-stamp: stamp 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes stamp {
+    from { transform: rotate(-14deg) scale(1.8); opacity: 0; }
+    to { transform: rotate(-8deg) scale(1); opacity: 1; }
+  }
+}
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Paper grain — one fixed SVG noise layer over everything. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+::selection { background: var(--color-saffron-w); color: var(--color-ink); }
+
+/* Things Tailwind can't express cleanly ---------------------------------- */
+@utility display {
+  @apply font-display font-medium tracking-[-0.02em] leading-[1.0];
+  font-variation-settings: "opsz" 144;
+}
+@utility eyebrow {
+  @apply font-mono text-[11px] uppercase tracking-[0.16em] text-green;
+}
+@utility arch {
+  border-radius: 999px 999px 24px 24px;
+}
+@utility rule-y {
+  background-image: repeating-linear-gradient(to bottom, transparent 0 31px, var(--color-line) 31px 32px);
+}
+@utility mask-fade-x {
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(var(--color-saffron), var(--color-saffron)) 0 / var(--pct, 50%) 100% no-repeat, var(--color-line);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  border: 3px solid var(--color-saffron);
+  box-shadow: 0 2px 8px rgba(20, 35, 28, 0.25);
+  cursor: grab;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
