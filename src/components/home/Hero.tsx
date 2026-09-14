@@ -10,7 +10,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
   const current = ROLES.find((r) => r.id === role)!
 
   return (
-    <section className="relative flex overflow-hidden pt-6 pb-14 md:min-h-[calc(100svh-64px)] md:items-center md:py-6">
+    <section className="relative flex overflow-hidden pt-6 pb-14 md:min-h-[calc(100svh-64px)] md:items-center md:pt-[50px] md:pb-6">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
           <div>
