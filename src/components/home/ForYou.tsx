@@ -62,7 +62,7 @@ export function ForYou({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => 
         <SectionHead eyebrow="Something for everyone" title={<>Whoever you are, <em>there is a tap for you.</em></>} />
         <FadeIn>
           <div ref={ref} className="grid gap-6 lg:grid-cols-[220px_1fr]">
-            <div className="flex gap-2 overflow-x-auto lg:flex-col lg:overflow-visible">
+            <div className="flex flex-wrap gap-2 lg:flex-col">
               {ROLES.map((r) => (
                 <button
                   key={r.id}

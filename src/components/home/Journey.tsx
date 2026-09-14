@@ -1,9 +1,10 @@
 import { ArrowUpRight } from 'lucide-react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MODULES } from '../../content/site'
 import { MODULE_VISUALS } from '../products/ModuleVisuals'
+import { FadeIn } from '../ui/Motion'
 import { Container } from '../ui/Section'
 
 /* The life of one loan, pinned. Scrolling through swaps the stage; the rail
@@ -11,7 +12,63 @@ import { Container } from '../ui/Section'
 
 const STAGES = ['Apply', 'Screen', 'Watch', 'Recover', 'Report', 'Inspect']
 
+/** Pinning six viewports of scroll is fragile on phone browsers — stack instead. */
+function useDesktop() {
+  const [on, setOn] = useState(() => window.matchMedia('(min-width: 1024px)').matches)
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const fn = () => setOn(mq.matches)
+    mq.addEventListener('change', fn)
+    return () => mq.removeEventListener('change', fn)
+  }, [])
+  return on
+}
+
 export function Journey() {
+  return useDesktop() ? <Pinned /> : <Stacked />
+}
+
+function Stacked() {
+  return (
+    <section id="journey" className="py-20">
+      <Container>
+        <div className="eyebrow mb-10 flex items-center gap-2">
+          <span className="size-1.5 rounded-full bg-saffron" />
+          The life of one loan
+        </div>
+        <div className="space-y-14">
+          {MODULES.map((m, k) => {
+            const Visual = MODULE_VISUALS[m.code]
+            return (
+              <FadeIn key={m.code}>
+                <div className="mx-auto mb-6 w-full max-w-[300px]">
+                  <Visual />
+                </div>
+                <div className="font-mono text-[12px] text-saffron">
+                  {STAGES[k]} · {m.code}
+                </div>
+                <h2 className="display mt-2 text-[clamp(30px,8vw,40px)]">{m.short}</h2>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {m.points.map((p) => (
+                    <span key={p} className="rounded-full border border-line2 bg-cream px-3 py-1.5 font-mono text-[11px] text-ink2">
+                      {p}
+                    </span>
+                  ))}
+                </div>
+              </FadeIn>
+            )
+          })}
+        </div>
+        <Link to="/products" className="group mt-10 inline-flex items-center gap-1.5 text-[14px] font-semibold text-green">
+          All six modules
+          <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </Link>
+      </Container>
+    </section>
+  )
+}
+
+function Pinned() {
   const ref = useRef<HTMLDivElement>(null)
   const [i, setI] = useState(0)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })

@@ -101,7 +101,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.2 }}
-            className="relative mx-auto w-full max-w-[520px] lg:ml-auto lg:max-w-[min(520px,58vh)]"
+            className="relative mx-auto w-full max-w-[360px] lg:ml-auto lg:max-w-[min(520px,58vh)]"
           >
             <div className="arch relative aspect-[4/5] overflow-hidden bg-paper2">
               <img src="/img/market.jpg" alt="A market street in India" className="size-full object-cover" fetchPriority="high" />
@@ -110,7 +110,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
                 For the institutions that lend to under-banked India
               </div>
             </div>
-            <div className="absolute -left-4 top-[46%] w-[min(300px,82%)] md:-left-14">
+            <div className="relative mx-auto -mt-16 w-[88%] lg:absolute lg:-left-14 lg:top-[46%] lg:mt-0 lg:w-[300px]">
               <SanctionTicket />
             </div>
           </motion.div>
