@@ -10,7 +10,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
   const current = ROLES.find((r) => r.id === role)!
 
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 md:pt-16 md:pb-24">
+    <section className="relative flex overflow-hidden pt-6 pb-14 md:min-h-[calc(100svh-64px)] md:items-center md:py-6">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
           <div>
@@ -24,7 +24,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
               Lending infrastructure for India&rsquo;s banks &amp; NBFCs
             </motion.div>
 
-            <h1 className="display mt-6 text-[clamp(48px,8vw,104px)]">
+            <h1 className="display mt-5 text-[clamp(44px,6.4vw,84px)]">
               {['Making Lending', 'Saral', 'for Bharat.'].map((line, i) => (
                 <span key={line} className="block overflow-hidden">
                   <motion.span
@@ -44,7 +44,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: EASE, delay: 0.35 }}
-              className="mt-10"
+              className="mt-7"
             >
               <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-hint">I am a…</div>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -65,7 +65,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
                   </button>
                 ))}
               </div>
-              <div className="mt-4 min-h-14 overflow-hidden sm:min-h-8">
+              <div className="mt-3 min-h-14 overflow-hidden sm:min-h-8">
                 <AnimatePresence mode="wait">
                   <motion.p
                     key={role}
@@ -85,7 +85,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.5 }}
-              className="mt-8 flex flex-wrap items-center gap-3"
+              className="mt-6 flex flex-wrap items-center gap-3"
             >
               <ButtonLink to="/demo" variant="saffron" size="lg" arrow>
                 Try a live decision
@@ -101,12 +101,12 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.2 }}
-            className="relative mx-auto w-full max-w-[520px] lg:ml-auto"
+            className="relative mx-auto w-full max-w-[520px] lg:ml-auto lg:max-w-[min(520px,58vh)]"
           >
             <div className="arch relative aspect-[4/5] overflow-hidden bg-paper2">
               <img src="/img/market.jpg" alt="A market street in India" className="size-full object-cover" fetchPriority="high" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
-              <div className="absolute inset-x-6 bottom-6 font-mono text-[11px] uppercase tracking-[0.14em] text-paper/80">
+              <div className="absolute inset-x-6 bottom-6 hidden font-mono text-[11px] uppercase tracking-[0.14em] text-paper/80 xl:block">
                 For the institutions that lend to under-banked India
               </div>
             </div>
