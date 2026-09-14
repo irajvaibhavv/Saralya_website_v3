@@ -90,7 +90,7 @@ export function ForYou({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => 
                   className="grid gap-8 p-6 md:grid-cols-[1fr_1fr] md:items-center md:p-10"
                 >
                   <div>
-                    <h3 className="display text-[clamp(30px,3.6vw,44px)] [&_em]:font-light [&_em]:italic [&_em]:text-saffron">{p.head}</h3>
+                    <h3 className="display text-[clamp(30px,3.6vw,44px)] [&_em]:font-light [&_em]:not-italic [&_em]:text-saffron">{p.head}</h3>
                     <div className="mt-8">
                       <ButtonLink to={p.cta.to} variant="ink" arrow>
                         {p.cta.label}

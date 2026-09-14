@@ -13,7 +13,7 @@ export function Section({ children, className = '', id }: { children: ReactNode;
   )
 }
 
-/** Eyebrow + serif headline. `title` may contain <em> for the saffron italic word. */
+/** Eyebrow + display headline. `title` may contain <em> for the light saffron word. */
 export function SectionHead({
   eyebrow,
   title,
@@ -33,7 +33,7 @@ export function SectionHead({
         <span className="size-1.5 rounded-full bg-saffron" />
         {eyebrow}
       </div>
-      <h2 className="display text-[clamp(34px,5vw,60px)] [&_em]:font-light [&_em]:italic [&_em]:text-saffron">{title}</h2>
+      <h2 className="display text-[clamp(34px,5vw,60px)] [&_em]:font-light [&_em]:not-italic [&_em]:text-saffron">{title}</h2>
       {lede && <p className={`mt-4 text-[16px] md:text-[17px] ${dark ? 'text-paper/60' : 'text-muted'}`}>{lede}</p>}
     </FadeIn>
   )

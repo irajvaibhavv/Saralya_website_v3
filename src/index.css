@@ -5,7 +5,7 @@
    into utilities (`bg-paper`, `text-green`, `font-display`, `shadow-card`…).
    --------------------------------------------------------------------------- */
 @theme {
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
 
@@ -76,8 +76,8 @@ body::after {
 
 /* Things Tailwind can't express cleanly ---------------------------------- */
 @utility display {
-  @apply font-display font-medium tracking-[-0.02em] leading-[1.0];
-  font-variation-settings: "opsz" 144;
+  @apply font-display font-bold tracking-[-0.035em] leading-[0.98];
+  font-variation-settings: "opsz" 96;
 }
 @utility eyebrow {
   @apply font-mono text-[11px] uppercase tracking-[0.16em] text-green;

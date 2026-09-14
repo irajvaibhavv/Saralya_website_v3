@@ -13,7 +13,7 @@ export function Cta() {
         <div className="relative max-w-2xl">
           <div className="eyebrow mb-4 text-mint">Talk to the founders</div>
           <h2 className="display text-[clamp(36px,5.5vw,64px)]">
-            See your book decided <em className="font-light italic text-saffron2">in minutes.</em>
+            See your book decided <em className="font-light text-saffron2">in minutes.</em>
           </h2>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink to="/demo" variant="saffron" size="lg" arrow>

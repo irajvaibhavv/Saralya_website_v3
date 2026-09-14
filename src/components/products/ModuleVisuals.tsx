@@ -265,7 +265,7 @@ function Comply() {
             </motion.span>
           ))}
           <motion.span
-            className="font-display text-[18px] italic text-saffron"
+            className="font-display text-[18px] font-light text-saffron"
             animate={{ opacity: [0, 0, 1, 1, 0] }}
             transition={{ duration: 3.6, times: [0, 0.5, 0.6, 0.9, 1], repeat: Infinity }}
           >

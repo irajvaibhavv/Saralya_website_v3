@@ -75,11 +75,11 @@ export function Upi() {
                 {days > 0 ? (
                   <>
                     {days}
-                    <span className="font-light italic text-muted"> days</span>
+                    <span className="font-light text-muted"> days</span>
                   </>
                 ) : (
                   <span className="text-green">
-                    &lt;5<span className="font-light italic"> min</span>
+                    &lt;5<span className="font-light"> min</span>
                   </span>
                 )}
               </div>

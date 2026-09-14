@@ -42,7 +42,7 @@ export function Products() {
                       </span>
                     ))}
                   </div>
-                  <div className="mt-6 font-display text-[18px] italic text-ink2">{m.name}</div>
+                  <div className="mt-6 font-display text-[18px] font-light text-ink2">{m.name}</div>
                 </div>
               </div>
             </FadeIn>

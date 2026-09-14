@@ -28,7 +28,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
               {['Making Lending', 'Saral', 'for Bharat.'].map((line, i) => (
                 <span key={line} className="block overflow-hidden">
                   <motion.span
-                    className={`block ${i === 1 ? 'font-light italic text-saffron' : ''}`}
+                    className={`block ${i === 1 ? 'font-light text-saffron' : ''}`}
                     initial={{ y: '105%' }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.6, ease: EASE, delay: 0.05 + i * 0.08 }}
@@ -73,7 +73,7 @@ export function Hero({ role, onRole }: { role: RoleId; onRole: (r: RoleId) => vo
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.25 }}
-                    className="max-w-md font-display text-[19px] italic leading-snug text-ink2 md:text-[22px]"
+                    className="max-w-md font-display text-[19px] font-light leading-snug text-ink2 md:text-[22px]"
                   >
                     {current.line}
                   </motion.p>

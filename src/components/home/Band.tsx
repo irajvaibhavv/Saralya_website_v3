@@ -24,7 +24,7 @@ export function Band() {
               <div className="display text-[clamp(64px,10vw,140px)] leading-none">
                 <Counter to={n as number} suffix="+" />
               </div>
-              <div className="mt-2 font-display text-[20px] italic text-paper/80">{l}</div>
+              <div className="mt-2 font-display text-[20px] font-light text-paper/80">{l}</div>
             </div>
           ))}
         </div>

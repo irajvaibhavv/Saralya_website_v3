@@ -13,7 +13,7 @@ export function PageHero({ eyebrow, title, lede, children }: { eyebrow: string; 
             <span className="size-1.5 rounded-full bg-saffron" />
             {eyebrow}
           </div>
-          <h1 className="display max-w-4xl text-[clamp(40px,7vw,88px)] [&_em]:font-light [&_em]:italic [&_em]:text-saffron">{title}</h1>
+          <h1 className="display max-w-4xl text-[clamp(40px,7vw,88px)] [&_em]:font-light [&_em]:not-italic [&_em]:text-saffron">{title}</h1>
           {lede && <p className="mt-5 max-w-xl text-[17px] text-muted">{lede}</p>}
           {children}
         </motion.div>

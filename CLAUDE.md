@@ -16,7 +16,7 @@ signs off on v3.
 
 Vite + React 19 + TypeScript, Tailwind v4 (`@theme` tokens in
 `src/index.css`), `motion/react`, `lucide-react`, React Router v7.
-Fonts: Fraunces (display serif) + Inter (UI) + Geist Mono (labels/data).
+Fonts: Bricolage Grotesque (display) + Inter (UI) + Geist Mono (labels/data).
 
 ```
 npm run dev      # http://localhost:5173
@@ -28,7 +28,7 @@ npx tsc -p tsconfig.app.json --noEmit
 
 Warm paper / Bharat-forward: paper `#f4eee2`, deep green `#0e5b3f`, saffron
 `#e9711c`, ink `#14231c`. Grain overlay on `body::after`. Photos are masked
-in an arch (`.arch`). Headlines are serif with one italic saffron word
+in an arch (`.arch`). Headlines are bold grotesk with one light saffron word
 (`<em>` inside `SectionHead`/`PageHero` titles). Buttons are pills; primary
 CTA is saffron.
 
